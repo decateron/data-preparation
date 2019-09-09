@@ -3,7 +3,9 @@ import pandas as pd
 
 
 
-def split_train_test(data, target=None, test_ratio=0.2):
+def split_train_test(data, target=None, test_ratio=0.2, random_state=42):
+    np.random.seed(random_state)
+    
     shuffled_indices = np.random.permutation(len(data))
     test_set_size = int(len(data) * test_ratio)
 
